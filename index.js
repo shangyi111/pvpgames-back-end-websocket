@@ -2,7 +2,9 @@ const http = require('http').createServer();
 const io = require('socket.io')(http, {
     cors: {origin: "*"}
 });
+const port = process.env.PORT || 4000;
 
+//https://pvpgames-socket.herokuapp.com/
 
 io.on('connection', (socket) => {
     // console.log('a user connected');
@@ -36,4 +38,4 @@ io.on('connection', (socket) => {
     });
 });
 
-http.listen(3000, () => console.log('listening on http://localhost:3000'));
+http.listen(port, () => console.log(`listening on http://localhost:${port}`));
